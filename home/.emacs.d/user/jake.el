@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t -*-
 
 
+(install-package 'projectile)
+(install-package 'flx-ido)
+
+(projectile-global-mode)
 
 (defun j/test-refresh ()
   (interactive)
@@ -41,6 +45,10 @@
   (interactive)
   (find-file "~/Copy/outpace/ideas.org"))
 
+(defun o/log ()
+  (interactive)
+  (find-file "~/Copy/outpace/log.org"))
+
 (defun b/insert-clojure-code (arg)
   (interactive "p")
   (insert "``` clojure
@@ -54,4 +62,3 @@
 ```")
   (beginning-of-line)
   (open-line arg))
-

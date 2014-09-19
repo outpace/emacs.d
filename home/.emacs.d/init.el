@@ -29,16 +29,15 @@
                       highlight
                       clojure-mode
                       clojurescript-mode
+                      company
                       clj-refactor
                       coffee-mode
                       markdown-mode
                       highlight-symbol
                       cider
-                      ac-cider
                       exec-path-from-shell
                       yaml-mode
                       ace-jump-mode
-                      auto-complete
                       popup
                       fuzzy
                       git-messenger
@@ -158,80 +157,32 @@
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
 
-;; nrepl
+;; cider
 (add-hook 'cider-interaction-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-mode-hook (lambda ()
                              (cider-turn-on-eldoc-mode)
                              (paredit-mode +1)
                              (fix-paredit-repl)))
+(add-hook 'cider-mode-hook 'company-mode)
+
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'company-mode)
+
 (setq cider-repl-popup-stacktraces t)
 (setq cider-auto-select-error-buffer t)
 (setq cider-repl-wrap-history t)
-;; (setq cider-repl-history-file ".cider-repl-history")
-
-(require 'ac-cider)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-mode))
-
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
-
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
-
-;; Use ac-nrepl-popup-doc to show in-line docs in a clojure buffer
-(eval-after-load "cider"
-  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-cider-popup-doc))
-
-;; Use ac-nrepl-popup-doc to show in-line docs in an nrepl buffer
-(eval-after-load "cider"
-  '(define-key cider-repl-mode-map (kbd "C-c C-d") 'ac-cider-popup-doc))
 
 ;; specify the print length to be 100 to stop infinite sequences
 ;; killing things.
 (setq cider-repl-print-length 100)
 
+;; Company mode all over.
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "<M-tab>") 'company-complete)
+(setq company-idle-delay 0.2)
+(setq company-minimum-prefix-length 2)
 
-;; auto-complete configuration
-(require 'popup)
-(require 'fuzzy)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
-(ac-flyspell-workaround)
-(setq ac-comphist-file (concat tmp-dir "ac-comphist.dat"))
-(global-auto-complete-mode t)
-(setq ac-auto-show-menu t)
-(setq ac-dwim t)
-(setq ac-quick-help-delay 1)
-(setq ac-quick-help-height 60)
-(setq ac-disable-inline t)
-(setq ac-show-menu-immediately-on-auto-complete t)
-(setq ac-auto-start 2)
-(setq ac-candidate-menu-min 0)
-
-(set-default 'ac-sources
-             '(ac-source-dictionary
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-semantic))
-
-
-
-(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
-                                    sass-mode yaml-mode csv-mode espresso-mode haskell-mode
-                                    html-mode nxml-mode sh-mode smarty-mode clojure-mode
-                                    lisp-mode textile-mode markdown-mode tuareg-mode))
-  (add-to-list 'ac-modes mode))
-
-;; erc
+;;
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
 ;; markdown
