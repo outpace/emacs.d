@@ -27,6 +27,7 @@
                       starter-kit-js
                       starter-kit-eshell
                       highlight
+                      dockerfile-mode
                       clojure-mode
                       clojurescript-mode
                       company
