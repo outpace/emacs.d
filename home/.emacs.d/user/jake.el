@@ -3,8 +3,11 @@
 
 (install-package 'projectile)
 (install-package 'flx-ido)
+(install-package 'color-theme-sanityinc-tomorrow)
 
 (projectile-global-mode)
+
+(setq user-specific-color-theme 'sanityinc-tomorrow-eighties)
 
 (defun j/test-refresh ()
   (interactive)

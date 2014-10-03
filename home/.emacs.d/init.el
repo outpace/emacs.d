@@ -107,7 +107,13 @@
 
 ;; color theme
 (add-to-list 'custom-theme-load-path (concat dotfiles-dir "themes"))
-(load-theme 'zenburn t)
+
+;; In your own user.el file you can (setq user-specific-color-theme
+;; 'other-theme-name) to load your own theme.
+(if (boundp 'user-specific-color-theme)
+    (load-theme user-specific-color-theme t)
+  (load-theme 'zenburn t))
+
 
 (set-face-foreground 'region "white")
 (set-face-background 'region "blue")
