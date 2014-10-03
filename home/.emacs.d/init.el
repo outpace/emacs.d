@@ -10,17 +10,20 @@
 (package-initialize)
 
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(clojure-mode . "melpa-stable") t)
 
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(
-                      starter-kit
+(defvar my-packages '(starter-kit
                       starter-kit-lisp
                       starter-kit-bindings
                       starter-kit-ruby
@@ -29,7 +32,6 @@
                       highlight
                       dockerfile-mode
                       clojure-mode
-                      clojurescript-mode
                       company
                       clj-refactor
                       coffee-mode
@@ -43,8 +45,7 @@
                       fuzzy
                       git-messenger
                       restclient
-                      jinja2-mode
-                      )
+                      jinja2-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun install-package (package)
