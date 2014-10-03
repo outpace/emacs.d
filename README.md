@@ -71,3 +71,11 @@ Useful added functions:
 - `scratch-buffer` - Opens up temporary buffer
 - `revert-all-buffers` - Refreshes all open buffers
 - `rename-file-and-buffer` - Renames current buffer and file
+
+## Color Theme
+
+The default color theme is **zenburn**. If you want to use something
+else then the recommended way of doing so is to `(setq
+user-specific-color-theme 'sanityinc-tomorrow-eighties)`
+`'sanity-inc-tomorrow-eighties` is whatever color theme you want. This
+should be done in your `user/username.el` file.
