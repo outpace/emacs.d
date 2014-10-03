@@ -217,19 +217,13 @@
 (global-auto-revert-mode 1)
 
 (defun revert-all-buffers ()
-  "Refreshes all open buffers from their respective files"
+  "Refreshes all open buffers from their respective files."
   (interactive)
-  (let* ((list (buffer-list))
-         (buffer (car list)))
-    (while buffer
-      (when (and (buffer-file-name buffer)
-                 65          (not (buffer-modified-p buffer)))
-        (set-buffer buffer)
-        (revert-buffer t t t))
-      (setq list (cdr list))
-      (setq buffer (car list))))
-  (message "Refreshed open files"))
-
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (not (buffer-modified-p)))
+        (revert-buffer t t t) )))
+  (message "Refreshed open files."))
 
 ;; kibit
 ;; Teach compile the syntax of the kibit output
