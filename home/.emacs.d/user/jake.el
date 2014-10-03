@@ -12,12 +12,6 @@
 (install-package 'color-theme-sanityinc-tomorrow)
 (setq user-specific-color-theme 'sanityinc-tomorrow-eighties)
 
-
-
-
-
-
-
 (defun j/test-refresh ()
   (interactive)
   (find-file "~/src/jakemcc/lein-test-refresh/test-refresh/project.clj"))
