@@ -17,6 +17,21 @@ something useful to add to the global configuration.
 
 ## Installation
 
+### Emacs
+
+You can build the very latest version of emacs from source w Homebrew as follows:
+
+    brew uninstall emacs
+    
+If you have a previous installation of emacs (from Homebrew) you may also need to blow away a cached version of the source:
+
+    rm /Library/Caches/Homebrew/emacs-*.tar.gz
+    
+Then...
+
+    brew install emacs --cocoa --srgb --use-git-head --HEAD
+    brew linkapps
+
 ### Using homeshick
 
     git clone https://github.com/outpace/emacs.d ~/.homesick/repos/outpace-emacs.d
@@ -71,3 +86,11 @@ Useful added functions:
 - `scratch-buffer` - Opens up temporary buffer
 - `revert-all-buffers` - Refreshes all open buffers
 - `rename-file-and-buffer` - Renames current buffer and file
+
+## Color Theme
+
+The default color theme is **zenburn**. If you want to use something
+else then the recommended way of doing so is to `(setq
+user-specific-color-theme 'sanityinc-tomorrow-eighties)`
+`'sanity-inc-tomorrow-eighties` is whatever color theme you want. This
+should be done in your `user/username.el` file.

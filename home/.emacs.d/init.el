@@ -10,25 +10,28 @@
 (package-initialize)
 
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(clojure-mode . "melpa-stable") t)
 
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(
-                      starter-kit
+(defvar my-packages '(starter-kit
                       starter-kit-lisp
                       starter-kit-bindings
                       starter-kit-ruby
                       starter-kit-js
                       starter-kit-eshell
                       highlight
+                      dockerfile-mode
                       clojure-mode
-                      clojurescript-mode
                       company
                       clj-refactor
                       coffee-mode
@@ -42,8 +45,7 @@
                       fuzzy
                       git-messenger
                       restclient
-                      jinja2-mode
-                      )
+                      jinja2-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun install-package (package)
@@ -105,7 +107,13 @@
 
 ;; color theme
 (add-to-list 'custom-theme-load-path (concat dotfiles-dir "themes"))
-(load-theme 'zenburn t)
+
+;; In your own user.el file you can (setq user-specific-color-theme
+;; 'other-theme-name) to load your own theme.
+(if (boundp 'user-specific-color-theme)
+    (load-theme user-specific-color-theme t)
+  (load-theme 'zenburn t))
+
 
 (set-face-foreground 'region "white")
 (set-face-background 'region "blue")
@@ -209,19 +217,13 @@
 (global-auto-revert-mode 1)
 
 (defun revert-all-buffers ()
-  "Refreshes all open buffers from their respective files"
+  "Refreshes all open buffers from their respective files."
   (interactive)
-  (let* ((list (buffer-list))
-         (buffer (car list)))
-    (while buffer
-      (when (and (buffer-file-name buffer)
-                 65          (not (buffer-modified-p buffer)))
-        (set-buffer buffer)
-        (revert-buffer t t t))
-      (setq list (cdr list))
-      (setq buffer (car list))))
-  (message "Refreshed open files"))
-
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (not (buffer-modified-p)))
+        (revert-buffer t t t) )))
+  (message "Refreshed open files."))
 
 ;; kibit
 ;; Teach compile the syntax of the kibit output
