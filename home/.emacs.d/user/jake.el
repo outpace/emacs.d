@@ -8,6 +8,7 @@
       (quote
        ("rebar.config" "project.clj" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" ".git")))
 (setq projectile-project-root-files-bottom-up (quote (".projectile" ".hg" ".fslckout" ".bzr" "_darcs")))
+(setq projectile-file-exists-remote-cache-expire (* 10 60))
 
 (install-package 'color-theme-sanityinc-tomorrow)
 (setq user-specific-color-theme 'sanityinc-tomorrow-eighties)
