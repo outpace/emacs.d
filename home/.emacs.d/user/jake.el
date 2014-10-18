@@ -10,6 +10,11 @@
 (setq projectile-project-root-files-bottom-up (quote (".projectile" ".hg" ".fslckout" ".bzr" "_darcs")))
 (setq projectile-file-exists-remote-cache-expire (* 10 60))
 
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))
+
 (install-package 'color-theme-sanityinc-tomorrow)
 (setq user-specific-color-theme 'sanityinc-tomorrow-eighties)
 
