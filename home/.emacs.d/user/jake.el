@@ -10,6 +10,15 @@
 (setq projectile-project-root-files-bottom-up (quote (".projectile" ".hg" ".fslckout" ".bzr" "_darcs")))
 (setq projectile-file-exists-remote-cache-expire (* 10 60))
 
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
