@@ -18,27 +18,6 @@
 (install-package 'color-theme-sanityinc-tomorrow)
 (setq user-specific-color-theme 'sanityinc-tomorrow-eighties)
 
-(defun j/test-refresh ()
-  (interactive)
-  (find-file "~/src/jakemcc/lein-test-refresh/test-refresh/project.clj"))
-
-(defun open-file-fn (file)
-  (lambda ()
-    (interactive)
-    (find-file file)))
-
-(defun create-project-shortcuts (prefix base)
-  (dolist (elt (directory-files base))
-    (let ((project (concat base "/" elt "/project.clj")))
-      (when (file-exists-p project)
-        (fset (intern (concat prefix elt)) (open-file-fn project))))))
-
-(defun refresh-project-shortcuts ()
-  (interactive)
-  (create-project-shortcuts "j/" "~/src/jakemcc"))
-
-(refresh-project-shortcuts)
-
 (defun o/scratch ()
   (interactive)
   (find-file "~/Copy/outpace/ideas.org"))
