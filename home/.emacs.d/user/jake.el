@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t -*-
 
 
+
+(install-package 'switch-window)
+(global-set-key (kbd "C-x o") 'switch-window)
+
 (install-package 'projectile)
 (install-package 'flx-ido)
 (projectile-global-mode)
