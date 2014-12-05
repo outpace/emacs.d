@@ -52,3 +52,11 @@
 ```")
   (beginning-of-line)
   (open-line arg))
+
+
+(defun unfill-paragraph ()
+  "Replace newline chars in current paragraph by single spaces.
+This command does the reverse of `fill-paragraph'."
+  (interactive)
+  (let ((fill-column 90002000))
+    (fill-paragraph nil)))
