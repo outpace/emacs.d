@@ -15,6 +15,7 @@
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(clojure-mode . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(inf-clojure . "melpa-stable") t)
 
 (package-initialize)
 
@@ -30,6 +31,7 @@
                       highlight
                       dockerfile-mode
                       clojure-mode
+                      inf-clojure
                       company
                       clj-refactor
                       coffee-mode
