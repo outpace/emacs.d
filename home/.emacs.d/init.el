@@ -122,7 +122,7 @@
 
 ;; PROJECtile settings
 
-( projectile-global-mode)
+(projectile-global-mode)
 (setq projectile-project-root-files
       (quote
        ("rebar.config" "project.clj" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" ".git" ".projectile_root")))
