@@ -43,6 +43,8 @@
                       ace-jump-mode
                       popup
                       fuzzy
+                      flx-ido
+                      projectile
                       git-messenger
                       restclient
                       jinja2-mode)
@@ -117,6 +119,24 @@
 
 (set-face-foreground 'region "white")
 (set-face-background 'region "blue")
+
+;; PROJECtile settings
+
+( projectile-global-mode)
+(setq projectile-project-root-files
+      (quote
+       ("rebar.config" "project.clj" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" ".git" ".projectile_root")))
+(setq projectile-project-root-files-bottom-up (quote (".projectile" ".hg" ".fslckout" ".bzr" "_darcs")))
+(setq projectile-file-exists-remote-cache-expire (* 10 60))
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
 
 ;; KEYBINDINGS
 ;;--------------------------------------------------
@@ -286,6 +306,5 @@ Display the results in a hyperlinked *compilation* buffer."
 (defun scratch-buffer ()
   (interactive)
   (switch-to-buffer (make-temp-name "scratch")))
-
 
 (load-system-specific-configs "-after")
