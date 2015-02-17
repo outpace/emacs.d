@@ -19,7 +19,7 @@ something useful to add to the global configuration.
 
 ### Emacs
 
-You can build the very latest version of emacs from source w Homebrew as follows:
+You can build the very latest version of emacs from source with Homebrew as follows:
 
     brew uninstall emacs
     
