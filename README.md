@@ -29,7 +29,7 @@ If you have a previous installation of emacs (from Homebrew) you may also need t
     
 Then...
 
-    brew install emacs --cocoa --srgb --use-git-head --HEAD
+    brew install emacs --cocoa --HEAD
     brew linkapps
 
 ### Using homeshick
