@@ -190,7 +190,8 @@
 (add-hook 'cider-mode-hook (lambda ()
                              (cider-turn-on-eldoc-mode)
                              (paredit-mode +1)
-                             (fix-paredit-repl)))
+                             (fix-paredit-repl)
+                             (local-set-key (kbd "C-c k") 'cider-refresh)))
 (add-hook 'cider-mode-hook 'company-mode)
 
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
@@ -308,3 +309,4 @@ Display the results in a hyperlinked *compilation* buffer."
   (switch-to-buffer (make-temp-name "scratch")))
 
 (load-system-specific-configs "-after")
+
