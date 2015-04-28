@@ -32,14 +32,9 @@ Then...
     brew install emacs --cocoa --HEAD
     brew linkapps
 
-### Using homeshick
+### emacs.d
 
-    git clone https://github.com/outpace/emacs.d ~/.homesick/repos/outpace-emacs.d
-    homeshick link outpace-emacs.d
-
-## Installation
-
-### Using homeshick
+#### Using homeshick
 
     git clone https://github.com/outpace/emacs.d ~/.homeshick/repos/emacs.d
     homeshick link emacs.d
