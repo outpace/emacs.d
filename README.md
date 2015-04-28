@@ -61,7 +61,7 @@ one of the user override files you would specify `(install-package 'algin-cljlet
 Has some additional functionality added for working in Clojure. Some
 of them include improving paredit usage in the repl, adding
 [clj-refactor](https://github.com/magnars/clj-refactor.el), using
-`auto-complete`, and some other smaller tweaks.
+`company` for auto-completion, and some other smaller tweaks.
 
 It also will load user/system specific configuration files if found.
 This allows you to add additional functionality depending on what
