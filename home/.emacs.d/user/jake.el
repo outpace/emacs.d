@@ -22,6 +22,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))

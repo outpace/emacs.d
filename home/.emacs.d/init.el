@@ -7,6 +7,7 @@
 (setq tmp-dir (file-name-as-directory (concat dotfiles-dir "tmp")))
 (make-directory tmp-dir t)
 
+
 (package-initialize)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -15,6 +16,7 @@
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(clojure-mode . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(inf-clojure . "melpa-stable") t)
 
 (package-initialize)
@@ -46,6 +48,7 @@
                       flx-ido
                       projectile
                       git-messenger
+                      git-timemachine
                       restclient
                       jinja2-mode)
   "A list of packages to ensure are installed at launch.")
@@ -309,4 +312,9 @@ Display the results in a hyperlinked *compilation* buffer."
   (switch-to-buffer (make-temp-name "scratch")))
 
 (load-system-specific-configs "-after")
+
+;; Put custom-set-variables and custom-set-faces in another file.
+(setq custom-file (concat dotfiles-dir "user/" user-login-name "-custom.el"))
+(if (file-exists-p custom-file) (load custom-file))
+
 
