@@ -175,6 +175,13 @@
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
 (require 'clj-refactor)
+
+;; Add custom magic requires.
+(dolist (mapping '(("maps" . "outpace.util.maps")
+                   ("seqs" . "outpace.util.seqs")
+                   ("string" . "clojure.string")))
+  (add-to-list 'cljr-magic-require-namespaces mapping t))
+
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-x")))
@@ -316,5 +323,3 @@ Display the results in a hyperlinked *compilation* buffer."
 ;; Put custom-set-variables and custom-set-faces in another file.
 (setq custom-file (concat dotfiles-dir "user/" user-login-name "-custom.el"))
 (if (file-exists-p custom-file) (load custom-file))
-
-
