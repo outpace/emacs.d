@@ -179,6 +179,8 @@
 ;; Add custom magic requires.
 (dolist (mapping '(("maps" . "outpace.util.maps")
                    ("seqs" . "outpace.util.seqs")
+                   ("times" . "outpace.util.times")
+                   ("time" . "clj-time.core")
                    ("string" . "clojure.string")))
   (add-to-list 'cljr-magic-require-namespaces mapping t))
 
