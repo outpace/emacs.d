@@ -180,14 +180,17 @@
 (dolist (mapping '(("maps" . "outpace.util.maps")
                    ("seqs" . "outpace.util.seqs")
                    ("times" . "outpace.util.times")
+                   ("repl" . "outpace.util.repl")
                    ("time" . "clj-time.core")
                    ("string" . "clojure.string")))
   (add-to-list 'cljr-magic-require-namespaces mapping t))
 
+(setq cljr-favor-prefix-notation nil)
+
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
+                               (yas/minor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-x")))
-(add-hook 'clojure-mode-hook (lambda () (yas/minor-mode 1)))
 
 ;; Stop SLIME's REPL from grabbing DEL,
 ;; which is annoying when backspacing over a '('
@@ -212,6 +215,7 @@
 (setq cider-repl-popup-stacktraces t)
 (setq cider-auto-select-error-buffer t)
 (setq cider-repl-wrap-history t)
+(setq cider-prompt-for-symbol nil)
 
 ;; specify the print length to be 100 to stop infinite sequences
 ;; killing things.
