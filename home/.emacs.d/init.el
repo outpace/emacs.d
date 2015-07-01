@@ -229,11 +229,25 @@
 (setq company-minimum-prefix-length 2)
 
 ;; rainbow delimiters
+;; from http://timothypratley.blogspot.com/2015/07/seven-specialty-emacs-settings-with-big.html
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (require 'rainbow-delimiters)
 (set-face-attribute 'rainbow-delimiters-unmatched-face nil
                     :foreground 'unspecified
                     :inherit 'error)
+
+;; Quit emacs in anger, don't prompt for killing active processes
+;; from: http://timothypratley.blogspot.com/2015/07/seven-specialty-emacs-settings-with-big.html
+(require 'cl)
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  (flet ((process-list ())) ad-do-it))
+
+;; Save all when focus on other window.
+;; from: http://timothypratley.blogspot.com/2015/07/seven-specialty-emacs-settings-with-big.html
+(defun save-all ()
+  (interactive)
+  (save-some-buffers t))
+(add-hook 'focus-out-hook 'save-all)
 
 ;;
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
