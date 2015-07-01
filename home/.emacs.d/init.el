@@ -50,6 +50,7 @@
                       git-messenger
                       git-timemachine
                       restclient
+                      rainbow-delimiters
                       jinja2-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -226,6 +227,13 @@
 (global-set-key (kbd "<M-tab>") 'company-complete)
 (setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 2)
+
+;; rainbow delimiters
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(require 'rainbow-delimiters)
+(set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                    :foreground 'unspecified
+                    :inherit 'error)
 
 ;;
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
