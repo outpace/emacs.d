@@ -43,6 +43,7 @@
                       exec-path-from-shell
                       yaml-mode
                       ace-jump-mode
+                      avy
                       popup
                       fuzzy
                       flx-ido
@@ -256,6 +257,12 @@
 ;; markdown
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;; avy
+(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-x j") 'avy-pop-mark)
+(global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
+;; (global-set-key (kbd "s-w") 'ace-window)
 
 ;; ace jump mode
 (autoload
