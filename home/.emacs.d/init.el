@@ -187,6 +187,7 @@
   (add-to-list 'cljr-magic-require-namespaces mapping t))
 
 (setq cljr-favor-prefix-notation nil)
+(setq cljr-find-usages-ignore-analyzer-errors t)
 
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
