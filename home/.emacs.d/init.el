@@ -52,7 +52,8 @@
                       git-timemachine
                       restclient
                       rainbow-delimiters
-                      jinja2-mode)
+                      jinja2-mode
+                      web-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun install-package (package)
