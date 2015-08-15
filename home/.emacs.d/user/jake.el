@@ -22,7 +22,9 @@
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
+;; magit configuration
 (setq magit-last-seen-setup-instructions "1.4.0")
+(setq magit-push-always-verify nil)
 
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
