@@ -79,3 +79,18 @@ This command does the reverse of `fill-paragraph'."
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
+
+
+;; python jedi
+(install-package 'jedi)
+;; Also need to run function jedi:install-server
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+(setq jedi:use-shortcuts t)
+
+;; tern
+;; (add-to-list 'load-path "~/src/github/tern/emacs/")
+;; (autoload 'tern-mode "tern.el" nil t)
+;; (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
