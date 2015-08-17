@@ -163,6 +163,8 @@
 (add-to-list 'ffip-patterns "*\.cljs")
 (add-to-list 'ffip-patterns "*\.coffee")
 
+
+
 ;; slime and paredit
 (defun fix-paredit-repl ()
   (interactive)
@@ -337,20 +339,6 @@ Display the results in a hyperlinked *compilation* buffer."
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil)))))))
-
-;; python jedi
-
-;; need to have epc and jedi installed
-;; (setq jedi:setup-keys t)
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (add-hook 'python-mode-hook 'auto-complete-mode)
-;; (put 'upcase-region 'disabled nil)
-
-
-;; tern
-;; (add-to-list 'load-path "~/src/github/tern/emacs/")
-;; (autoload 'tern-mode "tern.el" nil t)
-;; (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 
 
 
