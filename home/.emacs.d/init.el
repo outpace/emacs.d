@@ -24,12 +24,29 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit
-                      starter-kit-lisp
-                      starter-kit-bindings
-                      starter-kit-ruby
-                      starter-kit-js
-                      starter-kit-eshell
+(defvar my-packages '(
+                      ;; each starter kit moved directly into this
+                      ;; project and requirements put below. It is
+                      ;; probably broken as starter-kit depended on
+                      ;; pretty old versions of some of these
+                      ;; libraries (in particiular, magit)
+                      ;; deps listed below startkit that was inlined
+                      ;; into ./vendor
+                      
+                      ;; starter-kit
+                      with-editor
+                      magit
+                      paredit
+                      idle-highlight-mode
+                      smex
+                      ido-ubiquitous
+                      find-file-in-project
+                      ;; starter-kit-lisp
+                      elisp-slime-nav
+                      ;; starter-kit-bindings
+                      ;; starter-kit-ruby
+                      inf-ruby
+                      ;; starter-kit-js
                       highlight
                       dockerfile-mode
                       clojure-mode
@@ -86,6 +103,12 @@
 
 (setq vendor-dir (concat dotfiles-dir "/vendor"))
 (add-to-list 'load-path vendor-dir)
+
+(require 'starter-kit)
+(require 'starter-kit-lisp)
+(require 'starter-kit-bindings)
+(require 'starter-kit-ruby)
+(require 'starter-kit-js)
 
 (setq ispell-program-name "aspell")
 
