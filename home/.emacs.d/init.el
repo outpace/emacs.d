@@ -281,8 +281,11 @@
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
 ;; markdown
+(add-to-list 'auto-mode-alist '("README\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(setq markdown-command
+      (concat "pandoc -c file://" dotfiles-dir "github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone"))
 
 ;; avy
 (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
