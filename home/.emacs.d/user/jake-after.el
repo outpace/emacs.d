@@ -6,3 +6,9 @@
 
 
 
+(define-clojure-indent
+  (POST 'defun)
+  (GET 'defun)
+  (DELETE 'defun)
+  (PUT 'defun)
+  (context 'defun))
