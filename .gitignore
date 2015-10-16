@@ -1,7 +1,7 @@
 tmp
 auto-save-list
-backups/*
-elpa/*
+backups
+elpa
 swank/*
 .smex-items
 places
