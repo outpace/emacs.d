@@ -10,3 +10,4 @@ session*
 url
 tramp
 home/.emacs.d/projectile-bookmarks.eld
+*DS_Store*
