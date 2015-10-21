@@ -1,7 +1,7 @@
 tmp
 auto-save-list
-backups/*
-elpa/*
+backups
+elpa
 swank/*
 .smex-items
 places
@@ -9,3 +9,5 @@ eshell
 session*
 url
 tramp
+home/.emacs.d/projectile-bookmarks.eld
+*DS_Store*
