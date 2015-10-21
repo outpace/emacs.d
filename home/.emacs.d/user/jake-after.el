@@ -11,4 +11,5 @@
   (GET 'defun)
   (DELETE 'defun)
   (PUT 'defun)
+  (ANY 'defun)
   (context 'defun))
