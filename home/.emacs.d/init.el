@@ -39,6 +39,7 @@
                       paredit
                       idle-highlight-mode
                       smex
+                      ag
                       ido-ubiquitous
                       find-file-in-project
                       ;; starter-kit-lisp
