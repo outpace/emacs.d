@@ -13,3 +13,6 @@
   (PUT 'defun)
   (ANY 'defun)
   (context 'defun))
+
+
+(setq ring-bell-function 'ignore)
